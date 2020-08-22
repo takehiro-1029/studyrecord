@@ -1,0 +1,37 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+@charset "UTF-8";
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+    color: $font-color;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    background: $body-bg;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.sp_line {
+    display: none;
+    @include mq(md) {
+        display: block;
+    }
+}
+
+.pc_line {
+    display: block;
+    @include mq(md) {
+        display: block;
+    }
+}
+

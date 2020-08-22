@@ -1,0 +1,86 @@
+.p-calendar {
+    margin-left: auto;
+    width: 50%;
+    @include mq() {
+        width: 100%;
+    }
+}
+
+.p-calendar__content-table {
+    width: 100%;
+    border: solid 1px #ff68606e;
+}
+
+.p-calendar__month {
+    height: 50px;
+    font-size: 1.3rem;
+    background-color: #FF6860;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.p-calendar__month-prev, .p-calendar__month-next{
+    color: #FFFFFF;
+    float: left;
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.p-calendar__month-now{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #FFFFFF;
+    float: left;
+    width: 70%;
+}
+
+.p-calendar__content{
+    background: #fff;
+}
+
+.p-calendar__content-table-day_of_week{
+    height: 40px;
+}
+
+.p-calendar__content-table-day{
+    height: 50px;
+}
+
+.p-calendar__content-table-day_of_week-txt {
+    vertical-align: middle;
+    width: 14%;
+}
+
+th:nth-of-type(1),
+td:nth-of-type(1) {
+    color: red;
+}
+
+th:nth-of-type(7),
+td:nth-of-type(7) {
+    color: blue;
+}
+
+.p-calendar__content-table-day-form{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-calendar__content-table-today{
+    font-weight: bold;
+}
+
+.p-calendar__content-table-day-form-bgcolor{
+    background: #fff2cd42;
+}
+
+.p-calendar__content-table-day:hover{
+    background: #fff2cd42;
+    cursor: pointer;
+}

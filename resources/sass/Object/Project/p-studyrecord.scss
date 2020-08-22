@@ -1,0 +1,48 @@
+.p-studyrecord {
+    width: 50%;
+    font-size: 1.3rem;
+
+    @include mq() {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        font-size: 0.8rem;
+        margin-bottom: 5%;
+    }
+
+    &__content {
+        height: 25%;
+        margin: 0% 10% 5% 0%;
+        background-color: #fff2cd42;
+        border-radius: 10px;
+        padding: 0% 5%;
+
+        @include mq() {
+            width: 30%;
+            margin: 0 1%;
+            padding: 0;
+            height: 60px;
+            align-items: center;
+            display: grid;
+        }
+
+        &-title,
+        &-num {
+            @include mq(md) {}
+
+            @include mq() {}
+        }
+
+        &-num {
+            width: 100%;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+
+            @include mq() {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

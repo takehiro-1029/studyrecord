@@ -1,0 +1,28 @@
+.l-main {
+    margin: 2% 5% 0;
+
+    @include mq(lg) {
+        margin: 1% 1% 0;
+    }
+
+    @include mq() {
+        margin: 1% 2% 0;
+    }
+
+    &__top {
+        margin: 0;
+    }
+
+    &-wrapper {
+        display: flex;
+        height: 400px;
+
+        @include mq(lg) {}
+
+        @include mq() {
+            display: block;
+            height: 100%;
+            margin-bottom: 5%;
+        }
+    }
+}

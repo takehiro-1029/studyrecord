@@ -1,0 +1,36 @@
+.l-header {
+    &_top {
+        width: $site-width;
+        margin: 0 auto;
+        padding: 3% 0;
+        line-height: 50px;
+        position: absolute;
+        z-index: 1;
+
+        @include mq(lg) {
+            width: 100%;
+        }
+
+        @include mq(md) {}
+
+        @include mq() {
+            padding: 5% 0;
+        }
+    }
+
+    &_main {
+        width: $site-width;
+        margin: 1% 0;
+        line-height: 60px;
+
+        @include mq(lg) {
+            width: 100%;
+        }
+
+        @include mq(md) {}
+
+        @include mq() {
+            padding: 3% 0;
+        }
+    }
+}

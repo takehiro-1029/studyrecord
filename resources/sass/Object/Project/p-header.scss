@@ -1,0 +1,281 @@
+.p-header {
+    &_top {
+        font-size: 1.5rem;
+        width: 100%;
+        padding: 0 3%;
+        display: flex;
+        justify-content: space-between;
+
+        &__logo {
+            font-size: 2.4rem;
+
+            @include mq(md) {
+                font-size: 2rem;
+            }
+
+            @include mq() {
+                font-size: 1.6rem;
+            }
+        }
+
+        &__btn {
+            display: flex;
+            text-align: center;
+            background: #fa7426d4;
+            border-radius: 40px;
+
+            @include mq(md) {
+                font-size: 1.2rem;
+            }
+
+            @include mq() {
+                font-size: 0.8rem;
+                width: 100px;
+            }
+        }
+
+        &__btn-login {
+            width: 150px;
+        }
+
+        &__btn-login-btn {
+            display: block;
+
+            @include mq() {
+                font-size: 1rem;
+            }
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &_main {
+        font-size: 1.5rem;
+        margin: 0 3%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        &__logo {
+            font-size: 2.4rem;
+
+            & a {
+                color: $font-color;
+            }
+
+            @include mq(md) {
+                font-size: 2rem;
+            }
+
+            @include mq() {
+                font-size: 1.6rem;
+            }
+        }
+
+        &__username {
+            display: flex;
+
+            @include mq() {
+                display: none;
+            }
+
+            & span {
+                padding-right: 10px;
+                align-items: center;
+                display: flex;
+            }
+        }
+
+        &__actions {
+            position: absolute;
+            right: 0px;
+            width: 25%;
+            text-align: center;
+            padding: 2%;
+            border: solid 3px #6091d3;
+            background: #fff;
+            z-index: -1;
+            opacity: 0;
+            transition: all 1s ease;
+            word-break: break-all;
+            align-items: center;
+            display: inline-grid;
+
+            @include mq(lg) {
+                width: 40%;
+            }
+
+            @include mq() {
+                display: none;
+            }
+
+            &__user {
+                display: flex;
+                padding-bottom: 5%;
+
+                &-img {
+                    width: 25%;
+                    word-break: break-all;
+                    align-items: center;
+                    display: inline-grid;
+
+                    & img {
+                        border-radius: 30px;
+                        width: 60px;
+                    }
+                }
+
+                &-name {
+                    text-align: center;
+                    width: 75%;
+                    line-height: 60px;
+
+                    @include mq(md) {
+                        padding-left: 3%;
+                    }
+                }
+            }
+
+            &__btn {
+                background: #fa7426d4;
+                border-radius: 40px;
+                line-height: 50px;
+
+                @include mq() {
+                    font-size: 0.8rem;
+                    width: 100px;
+                }
+
+                & a {
+                    display: block;
+                }
+            }
+        }
+
+        &__nav {
+            display: none;
+
+            @include mq() {
+                display: block;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                background: rgba(255, 255, 255, 0.9);
+                width: 100%;
+                height: 100%;
+                padding-top: 25%;
+                transition: .5s;
+            }
+
+            &.active {
+                transition: .5s;
+                transform: translateX(-100%);
+                z-index: 2;
+            }
+
+            &__user {
+                display: flex;
+                padding-bottom: 5%;
+                padding-left: 1%;
+                margin-left: 30%;
+                margin-right: 5%;
+
+                &-img {
+                    display: grid;
+                    align-items: center;
+                    width: 25%;
+
+                    & img {
+                        border-radius: 30px;
+                        width: 60px;
+                    }
+                }
+
+                &-name {
+                    font-size: 1.2rem;
+                    text-align: center;
+                    width: 75%;
+                    word-break: break-all;
+                    line-height: 1.4;
+                    align-items: center;
+                    display: inline-grid;
+                    padding-left: 3%;
+                }
+            }
+
+            &__btn {
+                background: #fa7426d4;
+                border-radius: 40px;
+                line-height: 50px;
+                margin-left: 30%;
+                margin-right: 5%;
+                text-align: center;
+
+                & a {
+                    display: block;
+                }
+            }
+        }
+
+        &__menu-trigger {
+            display: none;
+            transition: all .4s;
+            box-sizing: border-box;
+            position: relative;
+            width: 35px;
+            height: 32px;
+            z-index: 3;
+            top: 13px;
+            right: 10px;
+
+            @include mq() {
+                display: inline-block;
+            }
+
+            & span {
+                display: inline-block;
+                transition: all .4s;
+                box-sizing: border-box;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background-color: #777;
+                border-radius: 4px;
+
+                &:nth-of-type(1) {
+                    top: 0;
+                }
+
+                &:nth-of-type(2) {
+                    top: 14px;
+                }
+
+                &:nth-of-type(3) {
+                    bottom: 0;
+                }
+            }
+
+            &.active span {
+                &:nth-of-type(1) {
+                    transform: translateY(12px) rotate(-45deg);
+                }
+
+                &:nth-of-type(2) {
+                    opacity: 0;
+                }
+
+                &:nth-of-type(3) {
+                    transform: translateY(-15px) rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+.js-show_user {
+    opacity: 1;
+    z-index: 1;
+}

@@ -1,0 +1,21 @@
+.l-footer {
+    width: $site-width;
+    background-color: #9b9ea9;
+    color: #ffffff;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 40px;
+
+    @include mq(lg) {
+        width: 100%;
+    }
+
+    @include mq() {
+        font-size: 0.8rem;
+    }
+
+    &__copyright {
+        display: block;
+        padding: 5px 0;
+    }
+}

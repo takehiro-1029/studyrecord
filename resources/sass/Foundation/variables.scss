@@ -1,0 +1,29 @@
+// サイト横幅
+$site-width: 1440px;
+
+// マップ型変数
+$breakpoints: (
+    'sm': 'screen and (max-width: 414px)',
+    'md': 'screen and (max-width: 768px)',
+    'lg': 'screen and (max-width: 1024px)',
+) !default;
+
+//mixin
+@mixin mq($breakpoint: sm) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// Body
+$body-bg: #f7ede02b;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+$font-color: #444546;
+
+// Colors
+
+
