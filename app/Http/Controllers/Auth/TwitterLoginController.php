@@ -22,16 +22,7 @@ class TwitterLoginController extends Controller
             $twitter_account = Socialite::driver('twitter')->user();
             $twitter_id = $twitter_account->id;
             
-//            dd($user_account);
-            
-//            if(1===1){
-//                $error = "DB読み込み失敗";
-//                throw new Exception($error);
-//            };
-
             $db_user = User::where('twitter_id', $twitter_id)->first();
-            
-//            dd($user->user_name);
             
 //            登録済みのユーザーが判定
             if(is_null($db_user)) {
@@ -40,7 +31,7 @@ class TwitterLoginController extends Controller
                     'twitter_id' => $twitter_account->id,
                     'user_name' => $twitter_account->name,
                     'screen_name' => $twitter_account->nickname,
-                    'profile_image_url' => $twitter_account->avatar,
+                    'profile_image_url' => $twitter_account->user['profile_image_url_https'],
                     'oauth_token' => $twitter_account->token,
                     'oauth_token_secret' => $twitter_account->tokenSecret,
                 ]);
@@ -55,7 +46,7 @@ class TwitterLoginController extends Controller
 //            登録済みのユーザー情報を更新
             User::where('twitter_id',$twitter_id)->update([
                 'user_name' => $twitter_account->name,
-                'profile_image_url' => $twitter_account->avatar,
+                'profile_image_url' => $twitter_account->user['profile_image_url_https'],
                 'oauth_token' => $twitter_account->token,
                 'oauth_token_secret' => $twitter_account->tokenSecret,
             ]);
@@ -66,7 +57,6 @@ class TwitterLoginController extends Controller
             return redirect('/calendar');
 
         } catch (Exception $e) {
-            dump($e->getMessage());
             Log::info($e->getMessage());
             session()->flash('flash_message', 'Twitterアカウント読み取りに失敗しました。');
             return redirect('/');

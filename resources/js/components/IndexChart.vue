@@ -23,12 +23,15 @@ export default {
     }
   },
   created: function () {
-      this.first_day = this.$moment(this.month).startOf('month').format('YYYY/MM/DD');
-      this.last_day = this.$moment(this.month).endOf('month').format('YYYY/MM/DD');
+      this.first_day = this.$moment(this.month,'YYYY-MM-DD').startOf('month').format('YYYY-MM-DD');
+      this.last_day = this.$moment(this.month,'YYYY-MM-DD').endOf('month').format('YYYY-MM-DD');
   },
   mounted : function(){
       let last_key = Object.keys(this.chartdata.sum).length -1;
       this.sum_hours = this.chartdata.sum[last_key];
+      var ctx = document.getElementById("line-chart").getContext("2d");
+      ctx.canvas.parentNode.style.backgroundColor = '#fff';
+      ctx.canvas.style.height = '250px';
   },
   methods: {
     getChartData() {

@@ -20,7 +20,8 @@
             <div class="p-top__main__canDo js-top_main-animation">
                 <div class="p-top__main__canDo-message">StudyRecordでできること</div>
                 <div class="p-top__main__canDo-detaill">学習進捗Tweetを自動で収集し、学習内容の振り返りが簡単にできます。</div>
-                <img src="{{ asset('/img/top_msg.jpg') }}" alt="">
+                <img class="p-top__main__canDo-img-pc" src="{{ asset('/img/top_explanation_pc.jpg') }}" alt="">
+                <img class="p-top__main__canDo-img-sp" src="{{ asset('/img/top_explanation_sp.jpg') }}" alt="">
             </div>
 
             <div class="p-top__main__recommend js-top_main-animation">

@@ -45,17 +45,23 @@ class GetUserTweet extends Command
     {
         set_time_limit(0);
         
+        Log::debug(Carbon::now()."ツイート取得開始");
+        
         try{
             $get_users = User::orderBy('id', 'asc')->where('day_update_flg', 0)->where('delete_flg', 0)->get();
+            
+            Log::debug(count($get_users)."ユーザー取得");
 
     //        該当ユーザーがいなければ処理終了
             if(count($get_users) === 0){
-                var_dump('処理終了');
+                Log::debug('取得ユーザーなし終了');
                 return;  
             };
 
     //         対象user分ループを回す
             for ($i = 0; $i < count($get_users); $i++) {
+                
+                Log::debug("ユーザーID:".$get_users[$i]->id);
 
                 $twitter_access = '';
                 $tweet_timeline = '';
@@ -143,7 +149,7 @@ class GetUserTweet extends Command
         
 //        配列であればtweetデータが入っている、オブジェクトであれば接続エラーが出てる
         if(is_array($tweetTimeline)) {
-            Log::debug("tweetを取得しました。");
+            Log::debug(count($tweetTimeline)."tweetを取得しました。");
             return $tweetTimeline;
         }else{
             Log::debug("tweetを取得できませんでした。");

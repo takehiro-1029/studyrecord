@@ -139,13 +139,28 @@
             }
 
             &__btn {
-                background: #fa7426d4;
                 border-radius: 40px;
                 line-height: 50px;
 
                 @include mq() {
                     font-size: 0.8rem;
                     width: 100px;
+                }
+                
+                &:not(:last-child) {
+                    margin-bottom: 5%;
+                }
+                
+                &-color-logout {
+                    background: #fa7426d4;
+                }
+                
+                &-color-contact {
+                    background: #f52a3ee3;
+                }
+                
+                &-color-use {
+                    background: #2667fae0;
                 }
 
                 & a {
@@ -206,12 +221,30 @@
             }
 
             &__btn {
-                background: #fa7426d4;
                 border-radius: 40px;
                 line-height: 50px;
                 margin-left: 30%;
                 margin-right: 5%;
                 text-align: center;
+                
+                &:not(:last-child) {
+                    margin-bottom: 5%;
+                }
+                
+                &-logout {
+                    background: #fa7426d4;
+                    border-radius: 40px;
+                }
+                
+                &-contact {
+                    background: #f52a3ee3;
+                    border-radius: 40px;
+                }
+                
+                &-use {
+                    background: #2667fae0;
+                    border-radius: 40px;
+                }
 
                 & a {
                     display: block;

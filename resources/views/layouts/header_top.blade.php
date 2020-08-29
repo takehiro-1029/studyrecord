@@ -3,12 +3,12 @@
     <div class="p-header_top js-top_header-animation">
        
         <h1 class="p-header_top__logo">
-            <a href="">StudyRecord</a>
+            <a href="">{{ __('StudyRecord') }}</a>
         </h1>
         
         <div class="p-header_top__btn">
             <div class="p-header_top__btn-login">
-                <a class="p-header_top__btn-login-btn" href="{{ route('login') }}">ログイン</a>
+                <a class="p-header_top__btn-login-btn" href="{{ route('login') }}">{{ __('Login') }}</a>
             </div>
         </div>
         

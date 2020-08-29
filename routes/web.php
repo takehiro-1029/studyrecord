@@ -21,4 +21,4 @@ Route::get('/logout', 'Auth\TwitterLogoutController@getLogout')->name('logout')-
 Route::get('/calendar', 'CalendarController@index')->name('calendar')->middleware('checkedlogin');
 
 
-Route::get('/getdata', 'Twitter@welcome');
+//Route::get('/getdata', 'Twitter@welcome');

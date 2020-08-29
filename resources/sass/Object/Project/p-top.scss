@@ -108,7 +108,7 @@
             @include mq() {
                 padding: 8% 5%;
             }
-
+            
             &-message {
                 font-size: 2rem;
                 font-weight: bold;
@@ -135,6 +135,20 @@
 
             & img {
                 width: 100%;
+            }
+            
+            &-img-pc{
+                display: block;
+                @include mq() {
+                    display: none;
+                } 
+            }
+            
+            &-img-sp{
+                display: none;
+                @include mq() {
+                    display: block;
+                } 
             }
         }
 
