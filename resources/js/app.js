@@ -23,7 +23,7 @@ Vue.use(moment)
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('index-chart', require('./components/IndexChart.vue').default);
 Vue.component('line-chart', require('./components/LineChart.vue').default);
 
@@ -64,16 +64,13 @@ $(window).on('load', function () {
 $(function () {
     $('.js-hover').on('click mouseenter', function () {
         $('.js-show').addClass('js-show_user');
-        console.log("click1");
     });
     $('.js-show').hover(function () {}, function () {
         $('.js-show').removeClass('js-show_user');
-        console.log("click2");
     });
     $(document).on('click', function (e) {
         if (!$(e.target).closest('.js-hover').length && !$(e.target).closest('.js-show_user').length　&& $('.js-show').hasClass('js-show_user')) {
             $('.js-show').removeClass('js-show_user');
-            console.log("click3");
         }
     });
 });
