@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'Twitter@get')->name('top')->middleware('checkedtop');
+Route::get('/', 'Twitter@getTopPage')->name('top')->middleware('checkedtop');
 
 Route::get('/twitter', 'Auth\TwitterLoginController@redirectToProvider')->name('login')->middleware('checkedtop');
 Route::get('/auth/twitter/callback', 'Auth\TwitterLoginController@handleProviderCallback')->middleware('checkedtop');
 Route::get('/logout', 'Auth\TwitterLogoutController@getLogout')->name('logout')->middleware('checkedlogin');
 
 Route::get('/calendar', 'CalendarController@index')->name('calendar')->middleware('checkedlogin');
+Route::get('/how_to_use', 'Twitter@getHowToUse')->name('how_to_use')->middleware('checkedlogin');
 
 
 //Route::get('/getdata', 'Twitter@welcome');

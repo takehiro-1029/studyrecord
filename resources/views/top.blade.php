@@ -57,10 +57,12 @@
               </div>
             </div>
 
-            <div class="p-top__main__section__btn js-top_main-animation">
-                <a class="p-top__main__section__btn-register" href="{{ route('login') }}">
-                  無料登録はこちらから
-                </a>
+            <div class="js-top_main-animation">
+                <div class="p-top__main__section__btn">
+                    <a class="p-top__main__section__btn-register" href="{{ route('login') }}">
+                        無料登録はこちらから
+                    </a>
+                </div>
             </div>
         </div>
 

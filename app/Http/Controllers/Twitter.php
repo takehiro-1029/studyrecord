@@ -63,34 +63,14 @@ class Twitter extends Controller
         return redirect()->route('calendar');
     }
     
-    public function get()
-    {
-        
-        
-        $study_record = new StudyRecord;     
-        $follow_num = $study_record->join('users', 'users.id', '=', 'studyrecords.user_id')->where('user_id',Auth::id())->get();
-        
-//        日時範囲（1ヶ月）を指定してDBから取得
-//        dump($follow_num);
-//        
-//        dump($follow_num[0]->study_hours);
-//        dump($follow_num[0]->study_tweet);
-//        dump($follow_num[0]->study_date);
-        
-//        $api_limit = $twitter->get('application/rate_limit_status', array(
-//                'resources' => 'statuses',
-//        ));
-//        $t = new DateTime($tweetTimeline[0]->created_at);
-//        $a = $t->setTimeZone(new DateTimeZone('Asia/Tokyo'))->format('Y/m/d');
-        
-//        dump($tweetTimeline[0]->text);
-//        dump($tweetTimeline);
-        
-//         $date1 = Carbon::parse($follow_num[0]->study_date)->timezone('Asia/Tokyo')->format('Y-m-j');
-//        $date2 = Carbon::parse($follow_num[1]->study_date)->timezone('Asia/Tokyo')->format('Y-m-j');
-//        $date2 = Carbon::parse($follow_num[1]->study_date)->format('Y-m-j');
-//        $user_db = array(['day'=>$follow_num[0]->study_date, 'hours'=>$follow_num[0]->study_hours],['day'=>$date2, 'hours'=>2]);
-        
+    public function getTopPage()
+    { 
         return view('top');
+    }
+    
+    public function getHowToUse()
+    { 
+        
+        return view('how_to_use',['userdata' => GetLoginUser::getuserdata()]);
     }
 }

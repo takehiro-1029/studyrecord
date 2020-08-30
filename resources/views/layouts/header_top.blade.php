@@ -3,7 +3,7 @@
     <div class="p-header_top js-top_header-animation">
        
         <h1 class="p-header_top__logo">
-            <a href="">{{ __('StudyRecord') }}</a>
+            <a href="{{ route('top') }}">{{ __('StudyRecord') }}</a>
         </h1>
         
         <div class="p-header_top__btn">

@@ -3,7 +3,7 @@
     <div class="p-header_main">
        
         <h1 class="p-header_main__logo">
-            <a href="">{{ __('StudyRecord') }}</a>
+            <a href="{{ route('calendar') }}">{{ __('StudyRecord') }}</a>
         </h1>
         
         <div class="p-header_main__username js-hover">
@@ -23,7 +23,7 @@
                 <a href="/contact/">{{ __('Contact') }}</a>
             </div>
             <div class="p-header_main__actions__btn p-header_main__actions__btn-color-use">
-                <a href="{{ route('logout') }}">{{ __('How_to_use') }}</a>
+                <a href="{{ route('how_to_use') }}">{{ __('How_to_use') }}</a>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
             </div>
             <div class="p-header_main__nav__btn ">
                 <div class="p-header_main__nav__btn-use">
-                    <a href="{{ route('logout') }}">{{ __('How_to_use') }}</a>
+                    <a href="{{ route('how_to_use') }}">{{ __('How_to_use') }}</a>
                 </div>
             </div>
         </nav>
