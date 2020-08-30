@@ -62,15 +62,18 @@ $(window).on('load', function () {
 
 //マウスオーバーしたときにユーザー情報表示
 $(function () {
-    $('.js-hover').on('click mouseover', function () {
-        $('.js-show').addClass("js-show_user");
-        $('.js-show').hover(function () {}, function () {
-            $('.js-show').removeClass("js-show_user");
-        });
+    $('.js-hover').on('click mouseenter', function () {
+        $('.js-show').addClass('js-show_user');
+        console.log("click1");
+    });
+    $('.js-show').hover(function () {}, function () {
+        $('.js-show').removeClass('js-show_user');
+        console.log("click2");
     });
     $(document).on('click', function (e) {
-        if (!$(e.target).closest('.js-hover').length && !$(e.target).closest('.js-show_user').length) {
-            $('.js-show').removeClass("js-show_user");
+        if (!$(e.target).closest('.js-hover').length && !$(e.target).closest('.js-show_user').length　&& $('.js-show').hasClass('js-show_user')) {
+            $('.js-show').removeClass('js-show_user');
+            console.log("click3");
         }
     });
 });

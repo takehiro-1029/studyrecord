@@ -106,7 +106,7 @@ class GetUserTweet extends Command
         $tweet_text = mb_convert_kana($user_timeline->text, 'kvrn');
         $tweet_time = Carbon::parse($user_timeline->created_at)->timezone('Asia/Tokyo');
         
-        if(preg_match('/(\d+(?:\.\d+)?)h/i', $tweet_text, $match) && $tweet_time->isToday()){
+        if(preg_match('/(\d+(?:\.\d+)?)h/i', $tweet_text, $match) && $tweet_time->isYesterday()){
             $study_hour = (float) $match[1];
             return [$study_hour, $tweet_text, $tweet_time];
         };
