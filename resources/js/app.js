@@ -38,7 +38,7 @@ const app = new Vue({
 });
 
 
-//top画面のふわっと出る表示(画面遷移時に一瞬表示されるのを防ぐためにopacity設定)
+//top画面のふわっと出る表示(画面遷移時に一瞬表示されるのを防ぐためにdisplay:none設定)
 $(window).on('load', function () {
     window.sr = ScrollReveal();
     sr.reveal('.js-top_header-animation', {
@@ -56,13 +56,13 @@ $(window).on('load', function () {
         distance: '100px',
         reset: false
     });
-//    $('.l-main__top').css('opacity', 1);
-//    $('.l-header_top').css('opacity', 1);
     
-    $('.l-main__top').fadeIn(0); 
-    $('.l-header_top').fadeIn(0); 
-    $('.l-footer').fadeIn(0); 
-    $('.p-header_main__actions').fadeIn(0); 
+    $('.l-main__top').fadeIn(200); 
+    $('.l-header_top').fadeIn(200); 
+    $('.l-footer').fadeIn(200);
+    if ($(window).width() > 414) {
+        $('.p-header_main__actions').fadeIn(200);
+    };
 });
 
 //マウスオーバーしたときにユーザー情報表示
@@ -79,27 +79,6 @@ $(function () {
         }
     });
 });
-
-
-//グラフの高さと背景を白に設定
-//$(function () {
-//    var ctx = document.getElementById("line-chart").getContext("2d");
-//    //ctx.canvas.parentNode.style.height = '250px';
-//    ctx.canvas.parentNode.style.backgroundColor = '#fff';
-//    ctx.canvas.style.height = '250px';
-//});
-
-//ページ遷移時にスクロール位置に戻る
-//$('.js-scroll_top').click(function(){
-//    var scrollPos= $(document).scrollTop();
-//    sessionStorage.setItem('key',scrollPos);
-//});
-//$(document).ready(function(){
-//    var pos = sessionStorage.getItem('key');
-////    $('html,body').animate({ scrollTop: pos }, 'slow');
-//    $(window).scrollTop(pos);
-//    sessionStorage.clear();
-//});
 
 // SPメニュー
 $(function() {
