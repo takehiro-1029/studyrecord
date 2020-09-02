@@ -12,6 +12,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'StudyRecord') }}</title>
+    
+    <!-- Styles -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,8 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 -->
 
-    <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    
 </head>
 
 <body>

@@ -101,7 +101,8 @@
             transition: all 1s ease;
             word-break: break-all;
             align-items: center;
-            display: inline-grid;
+//            display: inline-grid;
+            display: none;
 
             @include mq(lg) {
                 width: 40%;

@@ -56,8 +56,13 @@ $(window).on('load', function () {
         distance: '100px',
         reset: false
     });
-    $('.l-main__top').css('opacity', 1);
-    $('.l-header_top').css('opacity', 1);
+//    $('.l-main__top').css('opacity', 1);
+//    $('.l-header_top').css('opacity', 1);
+    
+    $('.l-main__top').fadeIn(0); 
+    $('.l-header_top').fadeIn(0); 
+    $('.l-footer').fadeIn(0); 
+    $('.p-header_main__actions').fadeIn(0); 
 });
 
 //マウスオーバーしたときにユーザー情報表示
