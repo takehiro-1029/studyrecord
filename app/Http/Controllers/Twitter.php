@@ -34,20 +34,21 @@ class Twitter extends Controller
             'exclude_replies' =>  true,
             'include_rts' =>  false,
             'count'  =>  10,
+            'tweet_mode' => 'extended',
         ));
         
         if(!empty($tweetTimeline)) {
             for($i = 0; $i < count($tweetTimeline); $i++){
-                $tweet_text = mb_convert_kana($tweetTimeline[$i]->text, 'kvrn');
+                $tweet_text = mb_convert_kana($tweetTimeline[$i]->full_text, 'kvrn');
                 $tweet_time = Carbon::parse($tweetTimeline[$i]->created_at)->timezone('Asia/Tokyo');
                 if(preg_match('/(\d+(?:\.\d+)?)h/i', $tweet_text, $match) && $tweet_time->isToday()){
                     dump((float) $match[1]);
                     dump($tweet_time);
-                    dump($tweetTimeline[$i]->text);
+                    dump($tweetTimeline[$i]->full_text);
                     $a = new StudyRecord([
                         'user_id' => Auth::id(),
                         'study_hours' => (float) $match[1],
-                        'study_tweet' => $tweetTimeline[$i]->text,
+                        'study_tweet' => $tweetTimeline[$i]->full_text,
                         'study_date' => $tweet_time,
                     ]);
                     $a->save();
@@ -58,7 +59,7 @@ class Twitter extends Controller
             };
         };
         
-        dump($tweetTimeline);
+        dd($tweetTimeline);
         
         return redirect()->route('calendar');
     }

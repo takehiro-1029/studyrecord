@@ -81,7 +81,7 @@ class GetUserTweet extends Command
 
                         if(!empty($study_tweet = self::judge_user_timeline($tweet_timeline[$j]))){
 
-                            self::save_user_tweet($get_users[$i]->id, $study_tweet[0], $tweet_timeline[$j]->text, $study_tweet[2]);
+                            self::save_user_tweet($get_users[$i]->id, $study_tweet[0], $tweet_timeline[$j]->full_text, $study_tweet[2]);
                             Log::debug(($j+1)."回目のツイートをStudyRecordにデータ挿入完了");
 
                         }; 
@@ -103,7 +103,7 @@ class GetUserTweet extends Command
     
     private static function judge_user_timeline($user_timeline)
     {
-        $tweet_text = mb_convert_kana($user_timeline->text, 'kvrn');
+        $tweet_text = mb_convert_kana($user_timeline->full_text, 'kvrn');
         $tweet_time = Carbon::parse($user_timeline->created_at)->timezone('Asia/Tokyo');
         
         if(preg_match('/(\d+(?:\.\d+)?)h/i', $tweet_text, $match) && $tweet_time->isYesterday()){
@@ -144,7 +144,9 @@ class GetUserTweet extends Command
             'screen_name' =>  $screen_name,
             'exclude_replies' =>  true,
             'include_rts' =>  false,
+            'trim_user' =>  true,
             'count'  =>  10,
+            'tweet_mode' => 'extended',
         ));
         
 //        配列であればtweetデータが入っている、オブジェクトであれば接続エラーが出てる
@@ -153,6 +155,10 @@ class GetUserTweet extends Command
             return $tweetTimeline;
         }else{
             Log::debug("tweetを取得できませんでした。");
+            User::where('screen_name',$screen_name)->update([
+                'delete_flg' => true,
+            ]);
+            Log::debug($screen_name."のdelete_flgをtrueにしました。");
             return;
         }
     }

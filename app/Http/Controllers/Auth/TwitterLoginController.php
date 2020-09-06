@@ -49,6 +49,7 @@ class TwitterLoginController extends Controller
                 'profile_image_url' => $twitter_account->user['profile_image_url_https'],
                 'oauth_token' => $twitter_account->token,
                 'oauth_token_secret' => $twitter_account->tokenSecret,
+                'delete_flg' => false,
             ]);
             
 //            どのデータと照合しているのか？

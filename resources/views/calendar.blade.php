@@ -17,6 +17,8 @@
             <div class="p-studyrecord__content">
                 <p class="p-studyrecord__content-title">総ツイート数</p>
                 <p class="p-studyrecord__content-num">{{ $count_tweet }}</p>
+                
+                <a href="https://twitter.com/intent/tweet?text=期間:{{ $month }}%0D%0A学習時間:{{ $count_hours }}h%0D%0Aツイート数:{{ $count_tweet }}%0D%0Ahttps://studynrecord.com">aaaaaaaa</a>
             </div>
         </div>
 
