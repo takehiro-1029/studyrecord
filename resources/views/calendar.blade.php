@@ -5,7 +5,9 @@
 @section('content')
 <main class="l-main">
     <div class="l-main-wrapper">
+
         <div class="p-studyrecord">
+           
             <div class="p-studyrecord__content">
                 <p class="p-studyrecord__content-title">期間</p>
                 <p class="p-studyrecord__content-num"> {{ $month }}</p>
@@ -16,10 +18,13 @@
             </div>
             <div class="p-studyrecord__content">
                 <p class="p-studyrecord__content-title">総ツイート数</p>
-                <p class="p-studyrecord__content-num">{{ $count_tweet }}</p>
-                
-                <a href="https://twitter.com/intent/tweet?text=期間:{{ $month }}%0D%0A学習時間:{{ $count_hours }}h%0D%0Aツイート数:{{ $count_tweet }}%0D%0Ahttps://studynrecord.com">aaaaaaaa</a>
+                <p class="p-studyrecord__content-num">{{ $count_tweet }}</p> 
             </div>
+            <div class="p-studyrecord__tweet">
+                <a href="https://twitter.com/intent/tweet?text=StudyRecord学習記録報告です%0D%0A%0D%0A期間%20:%20{{ $month }}%0D%0A時間%20:%20{{ $count_hours }}h%0D%0A進捗ツイート数%20:%20{{ $count_tweet }}%0D%0Ahttps://studynrecord.com%0D%0A%0D%0A%23駆け出しエンジニアと繋がりたい" target="_blank"><img src="{{ asset('/img/top_twitterlogo.jpeg') }}" alt=""></a>
+                <p>学習記録をツイート</p>
+            </div>
+            
         </div>
 
         <div class="p-calendar">

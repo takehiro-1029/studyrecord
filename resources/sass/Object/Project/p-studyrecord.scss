@@ -5,6 +5,7 @@
     @include mq() {
         width: 100%;
         display: flex;
+        flex-wrap: wrap-reverse;
         justify-content: space-between;
         text-align: center;
         font-size: 0.8rem;
@@ -13,7 +14,7 @@
 
     &__content {
         height: 25%;
-        margin: 0% 10% 5% 0%;
+        margin: 0% 10% 2% 0%;
         background-color: #fff2cd42;
         border-radius: 10px;
         padding: 0% 5%;
@@ -43,6 +44,28 @@
             @include mq() {
                 font-size: 1.2rem;
             }
+        }
+    }
+    
+    &__tweet {
+        display: flex;
+        align-items: center;
+        margin-left: 5%;
+        height: 12%;
+        @include mq() {
+            margin: 0 0 5% 5%;
+        }
+        & a {
+            display: contents;
+            & img {
+                height: 100%;
+                @include mq() {
+                    width: 15%;
+                }
+            }
+        }
+        & p {
+            margin-left: 3%;
         }
     }
 }

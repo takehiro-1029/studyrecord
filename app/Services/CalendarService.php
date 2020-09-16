@@ -106,7 +106,7 @@ class CalendarService
         $summarize_user_record['sum'] = array();
         
         for ($i=0; $i<count($user_record); $i++){
-            $study_date = Carbon::parse($user_record[$i]->study_date)->format('Y-m-j');
+            $study_date = Carbon::parse($user_record[$i]->study_date)->format('Y-m-d');
             $study_hours = $user_record[$i]->study_hours;
 //            $key_of_duplicated_date = array_search($study_date, array_column($summarize_user_record, 'day'));
             $key_of_duplicated_date = array_search($study_date, $summarize_user_record['day']);
