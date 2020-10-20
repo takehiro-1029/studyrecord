@@ -21,5 +21,5 @@ Route::get('/logout', 'Auth\TwitterLogoutController@getLogout')->name('logout')-
 Route::get('/calendar', 'CalendarController@index')->name('calendar')->middleware('checkedlogin');
 Route::get('/how_to_use', 'Twitter@getHowToUse')->name('how_to_use')->middleware('checkedlogin');
 
-
-//Route::get('/getdata', 'Twitter@welcome');
+Route::get('/save_record', 'Twitter@getSavePage')->name('save_record')->middleware('checkedlogin');
+Route::post('/save_record', 'Twitter@getSaveRecord')->middleware('checkedlogin');

@@ -5,7 +5,7 @@
 @section('content')
 <main class="l-main">
     <div class="l-main-wrapper">
-
+        
         <div class="p-studyrecord">
            
             <div class="p-studyrecord__content">
@@ -51,10 +51,13 @@
                     @endforeach
                 </table>
             </div>
+            <div class="p-calendar__move">
+                <input type="month" name="date">
+                <button type="button" id="btn_id">指定の月へ</button>
+            </div>
         </div>
     </div>
-
-
+    
     <div id="app">
         <index-chart :chartdata="{{ json_encode($chartdata) }}" :month="{{ json_encode($month) }}"></index-chart>
     </div>

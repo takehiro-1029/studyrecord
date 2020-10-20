@@ -3,6 +3,7 @@
 @include('layouts.header_top')
 
 @section('content')
+
 <main class="l-main__top">
     <div class="p-top">
         <div class="p-top__header js-top_header-animation">
@@ -68,6 +69,7 @@
 
     </div>
 </main>
+
 @endsection
 
 @include('layouts.footer')

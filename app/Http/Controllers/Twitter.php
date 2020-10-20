@@ -12,58 +12,6 @@ use Illuminate\Support\Facades\Session;
 
 class Twitter extends Controller
 {    
-    public function welcome()
-    {
-        $user = Auth::user()->where('id',Auth::id())->first();
-        
-        dump($user->oauth_token);
-                
-        // access_tokenを用いてTwitterOAuthをinstance化
-        $twitter = new TwitterOAuth(
-            config('services.twitter.client_id'),
-            config('services.twitter.client_secret'),
-            $user->oauth_token,
-            $user->oauth_token_secret
-        );
-        
-        dump($twitter);
-        
-//        タイムライン
-        $tweetTimeline = $twitter->get('statuses/user_timeline', array(
-            'screen_name' =>  $user->screen_name,
-            'exclude_replies' =>  true,
-            'include_rts' =>  false,
-            'count'  =>  10,
-            'tweet_mode' => 'extended',
-        ));
-        
-        if(!empty($tweetTimeline)) {
-            for($i = 0; $i < count($tweetTimeline); $i++){
-                $tweet_text = mb_convert_kana($tweetTimeline[$i]->full_text, 'kvrn');
-                $tweet_time = Carbon::parse($tweetTimeline[$i]->created_at)->timezone('Asia/Tokyo');
-                if(preg_match('/(\d+(?:\.\d+)?)h/i', $tweet_text, $match) && $tweet_time->isToday()){
-                    dump((float) $match[1]);
-                    dump($tweet_time);
-                    dump($tweetTimeline[$i]->full_text);
-                    $a = new StudyRecord([
-                        'user_id' => Auth::id(),
-                        'study_hours' => (float) $match[1],
-                        'study_tweet' => $tweetTimeline[$i]->full_text,
-                        'study_date' => $tweet_time,
-                    ]);
-                    $a->save();
-                    dump($a);
-                    continue;
-                };
-                echo $i;
-            };
-        };
-        
-        dd($tweetTimeline);
-        
-        return redirect()->route('calendar');
-    }
-    
     public function getTopPage()
     { 
         return view('top');
@@ -74,4 +22,39 @@ class Twitter extends Controller
         
         return view('how_to_use',['userdata' => GetLoginUser::getuserdata()]);
     }
+    
+    public function getSavePage()
+    { 
+        
+        return view('save_record',['userdata' => GetLoginUser::getuserdata()]);
+        
+    }
+    
+    public function getSaveRecord(Request $request)
+    { 
+        
+        $request->validate([
+            'date' => 'date|required|before:tomorrow',
+            'hour' => 'numeric|required|min:0.1|max:24',
+            'contents' => 'required|string|min:8|max:140',
+        ]);
+        
+        $date = $request->input('date');
+        $hour = $request->input('hour');
+        $contents = $request->input('contents');
+        
+        dd();
+        
+        $db_input = new StudyRecord([
+            'user_id' => Auth::id(),
+            'study_hours' => $hour,
+            'study_tweet' => $contents,
+            'study_date' => $date,
+        ]);
+        
+        $db_input->save();
+        dump($a);
+        dd(Auth::id());
+    }
+    
 }

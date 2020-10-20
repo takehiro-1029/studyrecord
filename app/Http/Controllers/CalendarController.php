@@ -30,4 +30,5 @@ class CalendarController extends Controller
             'userdata'      => GetLoginUser::getuserdata(),
         ]);
     }
+    
 }

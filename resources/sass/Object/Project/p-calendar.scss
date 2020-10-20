@@ -38,6 +38,16 @@
     width: 70%;
 }
 
+.p-calendar__move{
+    display: inline-block;
+    & input {
+        text-align: center;
+    }
+    & button:hover{
+        cursor: pointer;
+    }
+}
+
 .p-calendar__content{
     background: #fff;
 }

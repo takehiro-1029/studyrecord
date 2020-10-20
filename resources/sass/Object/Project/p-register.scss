@@ -1,0 +1,59 @@
+.p-register {
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    @include mq(md) {
+    }
+    @include mq() {  
+    }
+    &__title {
+        font-size: 1.5rem;
+        @include mq(md) {
+        }
+
+        @include mq() {  
+        }
+    }
+
+    &__form {
+        margin: 2% auto 3%;
+        width: 40%;
+        @include mq() {
+        }
+        & form{
+            padding: 0 5% 5%;
+            box-shadow: 5px 5px 20px 0 rgba(75, 75, 75, 0.5);
+            border-radius: 20px;
+            background: #fff;
+        }
+
+        &-day {
+            padding-top: 5%;
+            & input{
+                width: 40%;
+                text-align: center;
+                height: 30px;
+            }
+        }
+        &-hour {
+            padding-top: 2%;
+            & input{
+                width: 40%;
+                text-align: center;
+                height: 30px;
+            }
+        }
+        &-content {
+            padding: 2% 0;
+            & textarea{
+                width: 100%;
+                min-height: 200px;
+                padding: 2%;
+            }
+        }
+        &-submit{
+            width: 30%;
+            padding: 1%;
+        }
+    }
+}

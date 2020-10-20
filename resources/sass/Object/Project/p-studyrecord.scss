@@ -28,11 +28,8 @@
             display: grid;
         }
 
-        &-title,
-        &-num {
-            @include mq(md) {}
-
-            @include mq() {}
+        &-title {
+            padding-top: 1%;
         }
 
         &-num {

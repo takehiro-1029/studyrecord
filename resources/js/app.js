@@ -88,3 +88,16 @@ $(function() {
     });
 });
 
+// 日時を指定して遷移させる
+$(function () {
+    $('#btn_id').click(function () {
+        var date = $('input[name="date"]').val();
+        if (date !== '') {
+            window.location.href = '/calendar?ym='+ date;
+        };
+    });
+});
+
+
+
+
