@@ -31,7 +31,7 @@ class Twitter extends Controller
     }
     
     public function getSaveRecord(Request $request)
-    { 
+    {
         
         $request->validate([
             'date' => 'date|required|before:tomorrow',
@@ -39,21 +39,32 @@ class Twitter extends Controller
             'contents' => 'required|string|min:8|max:140',
         ]);
         
+        $user_id = Auth::id();
         $date = $request->input('date');
         $hour = $request->input('hour');
         $contents = $request->input('contents');
         
-        dd();
+        //DBから取り出して指定月の合計が24hを超える場合はエラーを出す
+        $db_sum_hours = StudyRecord::join('users', 'users.id', '=', 'studyrecords.user_id')->where('user_id',$user_id)->where('study_date', $date)->sum('study_hours');
+        
+        $sum_hours = $db_sum_hours + $hour;
+        
+        if(round($sum_hours,1) > 24){
+            session()->flash('flash_message', "合計が24hを超えているため保存できませんでした。");
+            return redirect('calendar');
+        }
         
         $db_input = new StudyRecord([
-            'user_id' => Auth::id(),
+            'user_id' => $user_id,
             'study_hours' => $hour,
             'study_tweet' => $contents,
             'study_date' => $date,
         ]);
         
         $db_input->save();
-        dump($a);
+        
+        dump($db_input);
+        
         dd(Auth::id());
     }
     
