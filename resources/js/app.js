@@ -98,6 +98,11 @@ $(function () {
     });
 });
 
+// フラッシュメッセージを5秒後に消す処理
+$(function() {
+    $('.js-flash-message').fadeOut(5000);
+});
+
 
 
 

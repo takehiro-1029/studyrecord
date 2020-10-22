@@ -51,21 +51,21 @@ class Twitter extends Controller
         
         if(round($sum_hours,1) > 24){
             session()->flash('flash_message', "合計が24hを超えているため保存できませんでした。");
-            return redirect('calendar');
+            
+        }else{
+            $db_input = new StudyRecord([
+                'user_id' => $user_id,
+                'study_hours' => $hour,
+                'study_tweet' => $contents,
+                'study_date' => $date,
+            ]);
+
+            $db_input->save();
+            
+            session()->flash('flash_message', "データを新規登録しました。");
         }
         
-        $db_input = new StudyRecord([
-            'user_id' => $user_id,
-            'study_hours' => $hour,
-            'study_tweet' => $contents,
-            'study_date' => $date,
-        ]);
-        
-        $db_input->save();
-        
-        dump($db_input);
-        
-        dd(Auth::id());
+        return redirect('calendar');
     }
     
 }
