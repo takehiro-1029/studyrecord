@@ -94153,6 +94153,19 @@ $(function () {
 
 $(function () {
   $('.js-flash-message').fadeOut(5000);
+}); // スクロール
+
+$(function () {
+  $('.p-calendar__content-table-day').click(function () {
+    var click_date = $(this).data('dayid');
+    var hasdata = $(".p-tweet__box__study-day").is('[data-id=' + click_date + ']');
+
+    if (hasdata) {
+      $("html,body").animate({
+        scrollTop: $('[data-id=' + click_date + ']').offset().top
+      });
+    }
+  });
 });
 
 /***/ }),

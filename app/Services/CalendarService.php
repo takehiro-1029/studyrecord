@@ -34,11 +34,11 @@ class CalendarService
         for ($day = 1; $day <= $days_in_month; $day++, $day_of_week++) {
             $date = self::getYm() . '-' . $day;
             if (Carbon::now()->format('Y-m-j') === $date) {
-                $week .= '<td class="p-calendar__content-table-day p-calendar__content-table-today">';
+                $week .= '<td class="p-calendar__content-table-day p-calendar__content-table-today" data-dayid="'.$date.'">';
             } else {
-                $week .= '<td class="p-calendar__content-table-day">';
+                $week .= '<td class="p-calendar__content-table-day" data-dayid="'.$date.'">';
             }
-            $week .= '<div class="p-calendar__content-table-day-form" data-dayid="'.$date.'">'. $day . '</div>';
+            $week .= '<div class="p-calendar__content-table-day-form" >'. $day . '</div>';
             $div_add_flg = true;
             foreach($summarize_user_study_record as $key => $val) {
                 if ($val['day'] === $date){

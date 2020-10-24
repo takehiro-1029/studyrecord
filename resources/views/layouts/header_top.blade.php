@@ -6,7 +6,11 @@
             <a href="{{ route('top') }}">{{ __('StudyRecord') }}</a>
         </h1>
         
+        
         <div class="p-header_top__btn">
+            <div class="p-header_top__btn-login">
+                <a class="p-header_top__btn-login-btn" href="{{ route('demo_login') }}">{{ __('DemoLogin') }}</a>
+            </div>
             <div class="p-header_top__btn-login">
                 <a class="p-header_top__btn-login-btn" href="{{ route('login') }}">{{ __('Login') }}</a>
             </div>

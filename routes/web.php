@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Twitter@getTopPage')->name('top')->middleware('checkedtop');
 
 Route::get('/twitter', 'Auth\TwitterLoginController@redirectToProvider')->name('login')->middleware('checkedtop');
+Route::get('/demo', 'Auth\DemoLoginController@Login')->name('demo_login')->middleware('checkedtop');
 Route::get('/auth/twitter/callback', 'Auth\TwitterLoginController@handleProviderCallback')->middleware('checkedtop');
 Route::get('/logout', 'Auth\TwitterLogoutController@getLogout')->name('logout')->middleware('checkedlogin');
 

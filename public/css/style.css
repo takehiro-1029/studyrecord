@@ -719,8 +719,6 @@ a {
 .p-header_top__btn {
   display: flex;
   text-align: center;
-  background: #fa7426d4;
-  border-radius: 40px;
 }
 
 @media screen and (max-width: 768px) {
@@ -733,11 +731,33 @@ a {
   .p-header_top__btn {
     font-size: 0.8rem;
     width: 100px;
+    display: block;
+    margin-left: 3%;
   }
 }
 
 .p-header_top__btn-login {
-  width: 150px;
+  width: 200px;
+  background: #fa7426d4;
+  border-radius: 40px;
+}
+
+@media screen and (max-width: 414px) {
+  .p-header_top__btn-login {
+    width: 100px;
+  }
+}
+
+.p-header_top__btn-login:first-child {
+  margin-right: 5%;
+  background: #2d8ff1;
+}
+
+@media screen and (max-width: 414px) {
+  .p-header_top__btn-login:first-child {
+    margin-right: 0%;
+    margin-bottom: 5%;
+  }
 }
 
 .p-header_top__btn-login-btn {

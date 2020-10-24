@@ -66,7 +66,7 @@
         @foreach ($viewdata as $key => $data)
         <div class="p-tweet__box">
             <div class="p-tweet__box__study">
-                <div class="p-tweet__box__study-day">{{$data['day']}}</div>
+                <div class="p-tweet__box__study-day" data-id="{{$data['day']}}">{{$data['day']}}</div>
                 <div class="p-tweet__box__study-hour">{{$data['hours']}} <span>h</span></div>
             </div>
             <div class="p-tweet__box__text">{!! nl2br(e($data['tweet'])) !!}</div>
