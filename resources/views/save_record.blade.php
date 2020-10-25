@@ -39,7 +39,6 @@
             </div>
 
             <input class="p-register__form-submit" type="submit" value="登録する">
-
         </form>
 
 

@@ -71,53 +71,46 @@ class Twitter extends Controller
         $date = $request->input('date');
         $hour = $request->input('hour');
         $contents = $request->input('contents');
-        
-        try {
 
-            //DBから取り出して指定月の合計が24hを超える場合はエラーを出す
-            $db_sum_hours = User::join('studyrecords', 'studyrecords.user_id', '=', 'users.id')->where('user_id',$user_id)->where('study_date', $date)->sum('study_hours');
+        //DBから取り出して指定月の合計が24hを超える場合はエラーを出す
+        $db_sum_hours = User::join('studyrecords', 'studyrecords.user_id', '=', 'users.id')->where('user_id',$user_id)->where('study_date', $date)->sum('study_hours');
 
-            if($id === 0){
+        if($id === 0){
 
-                $sum_hours = $db_sum_hours + $hour;
+            $sum_hours = $db_sum_hours + $hour;
 
-                self::judge_hour($sum_hours); 
+            self::judge_hour($sum_hours);
 
-                $db_input = new StudyRecord([
-                    'user_id' => $user_id,
-                    'study_hours' => $hour,
-                    'study_tweet' => $contents,
-                    'study_date' => $date,
-                ]);
+            $db_input = new StudyRecord([
+                'user_id' => $user_id,
+                'study_hours' => $hour,
+                'study_tweet' => $contents,
+                'study_date' => $date,
+            ]);
 
-                $db_input->save();
+            $db_input->save();
 
-                session()->flash('flash_message', "データを新規登録しました");
+            session()->flash('flash_message', "データを新規登録しました");
 
-            }else{
+        }else{
 
-                $db_provsave_hours = StudyRecord::where('id',$id)->sum('study_hours');
+            $db_provsave_hours = StudyRecord::where('id',$id)->sum('study_hours');
 
-                $sum_hours = $db_sum_hours + ($hour - $db_provsave_hours);
+            $sum_hours = $db_sum_hours + ($hour - $db_provsave_hours);
 
-                self::judge_hour($sum_hours);  
+            self::judge_hour($sum_hours);  
 
-                $db_update = StudyRecord::where('id','=', $id)->update([
-                    'study_hours' => $hour,
-                    'study_tweet' => $contents,
-                    'study_date' => $date,
-                ]);
+            $db_update = StudyRecord::where('id','=', $id)->update([
+                'study_hours' => $hour,
+                'study_tweet' => $contents,
+                'study_date' => $date,
+            ]);
 
-                session()->flash('flash_message', "データを編集しました");
+            session()->flash('flash_message', "データを編集しました");
 
-            }
-            
-            return redirect('calendar');
-            
-        } catch (Exception $e) {
-            Log::info($e->getMessage());
-            return redirect('calendar')->with('flash_message', __('Invalid operation was performed.'));
         }
+
+        return redirect('calendar');
         
     
     }
