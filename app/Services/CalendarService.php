@@ -5,6 +5,7 @@ namespace App\Services;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\StudyRecord;
+use App\User;
 
 class CalendarService
 {
@@ -34,9 +35,9 @@ class CalendarService
         for ($day = 1; $day <= $days_in_month; $day++, $day_of_week++) {
             $date = self::getYm() . '-' . $day;
             if (Carbon::now()->format('Y-m-j') === $date) {
-                $week .= '<td class="p-calendar__content-table-day p-calendar__content-table-today" data-dayid="'.$date.'">';
+                $week .= '<td class="p-calendar__content-table-day p-calendar__content-table-today js-scroll-click" data-dayid="'.$date.'">';
             } else {
-                $week .= '<td class="p-calendar__content-table-day" data-dayid="'.$date.'">';
+                $week .= '<td class="p-calendar__content-table-day js-scroll-click" data-dayid="'.$date.'">';
             }
             $week .= '<div class="p-calendar__content-table-day-form" >'. $day . '</div>';
             $div_add_flg = true;
@@ -149,10 +150,12 @@ class CalendarService
         $view_user_record_count_tweet = count($user_record);
         
         for ($i=0; $i<$view_user_record_count_tweet; $i++){
+            $id = $user_record[$i]->id;
             $study_date = Carbon::parse($user_record[$i]->study_date)->format('Y-m-j');
             $study_hours = $user_record[$i]->study_hours;
             $study_tweet = $user_record[$i]->study_tweet;
             
+            $view_user_record[$i]['id'] = $id;
             $view_user_record[$i]['day'] = $study_date;
             $view_user_record[$i]['hours'] = $study_hours;
             $view_user_record[$i]['tweet'] = $study_tweet;
@@ -206,7 +209,8 @@ class CalendarService
         $firstday = new Carbon(self::getYm_firstday());//2020-07-01
         $lastday = new Carbon(self::getYm_lastday());//2020-07-31
         
-        $user_record = StudyRecord::join('users', 'users.id', '=', 'studyrecords.user_id')->where('user_id',$user_id)->whereBetween('study_date', [$firstday, $lastday])->orderBy('study_date', 'asc')->get();
+//        $user_record = StudyRecord::join('users', 'users.id', '=', 'studyrecords.user_id')->where('user_id',$user_id)->whereBetween('study_date', [$firstday, $lastday])->orderBy('study_date', 'asc')->get();
+        $user_record = User::join('studyrecords', 'studyrecords.user_id', '=', 'users.id')->where('user_id',$user_id)->whereBetween('study_date', [$firstday, $lastday])->orderBy('study_date', 'asc')->get();
         
         return $user_record;
     }

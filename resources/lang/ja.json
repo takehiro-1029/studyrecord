@@ -4,5 +4,8 @@
     "Logout": "ログアウト",
     "Contact": "お問い合わせ",
     "How_to_use": "利用方法",
-    "DemoLogin": "デモ"
+    "DemoLogin": "デモ",
+    "Invalid operation was performed.": "不正な操作が行われました",
+    "this account is demo.": "デモサイトのため登録・削除機能は使用できません",
+    "Deleted.": "削除しました"
 }

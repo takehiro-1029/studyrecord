@@ -23,4 +23,7 @@ Route::get('/calendar', 'CalendarController@index')->name('calendar')->middlewar
 Route::get('/how_to_use', 'Twitter@getHowToUse')->name('how_to_use')->middleware('checkedlogin');
 
 Route::get('/save_record', 'Twitter@getSavePage')->name('save_record')->middleware('checkedlogin');
-Route::post('/save_record', 'Twitter@getSaveRecord')->middleware('checkedlogin');
+Route::get('/edit_record/{id}', 'Twitter@getEditPage')->name('edit_record')->middleware('checkedlogin');
+Route::get('/delete_record/{id}', 'Twitter@DeleteRecord')->name('delete_record')->middleware('checkedlogin');
+
+Route::post('/save_record/{id?}','Twitter@SaveRecord')->middleware('checkedlogin');

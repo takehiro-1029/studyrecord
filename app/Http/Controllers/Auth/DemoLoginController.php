@@ -21,7 +21,11 @@ class DemoLoginController extends Controller
     
     public function Login() {
         
+        session(['demo' => true]);
+        
         Auth::loginUsingId(self::getUser());
+        
+        session()->flash('flash_message', "デモサイトにログインしました");
         
         return redirect('/calendar');
     }

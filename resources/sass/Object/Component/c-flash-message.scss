@@ -9,4 +9,9 @@
     left: 0;
     font-weight: bold;
     z-index: 2;
+    @include mq(){
+        font-size: 0.8rem;
+        line-height: 2.5;
+        
+    }
 }

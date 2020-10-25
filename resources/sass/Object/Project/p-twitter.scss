@@ -19,6 +19,24 @@
             margin-right: 0;
         }
     }
+    
+    &__signup{
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 2%;
+        margin-left: 1%;
+        &-btn{
+            background: #1e5be6;
+            width: 150px;
+            display: inline-block;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            @include mq() {
+                width: 100px;
+            }
+        }
+    }
 
     &__box {
         margin-bottom: 3%;
@@ -34,6 +52,25 @@
             width: 100%;
             margin-bottom: 5%;
             padding: 2% 3%;
+        }
+        
+        &__btn{
+            text-align: center;
+            justify-content: space-between;
+            display: flex;
+            margin: 0 2%;
+            &-edit, &-delete{
+                display: inline-block;
+                width: 25%;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            &-edit{
+                background: #1e5be6;  
+            }
+            &-delete{
+                background: #f3384aeb;
+            }
         }
 
         &__study {
@@ -66,6 +103,7 @@
             min-height: 400px;
             padding-left: 5%;
             word-break: break-all;
+            padding-bottom: 5%;
 
             @include mq() {
                 min-height: initial;

@@ -19,6 +19,7 @@
         margin: 2% auto 3%;
         width: 40%;
         @include mq(){
+            width: 95%;
         }
         & form{
             padding: 0 5% 5%;
@@ -33,6 +34,17 @@
                 width: 40%;
                 text-align: center;
                 height: 30px;
+                @include mq(){
+                    width: 60%;
+                }
+            }
+            & strong{
+                display: block;
+                color: #e21313;
+                font-size: 1rem;
+                @include mq(){
+                    font-size: 0.9rem;
+                }
             }
         }
         &-hour {
@@ -41,6 +53,9 @@
                 width: 40%;
                 text-align: center;
                 height: 30px;
+                @include mq(){
+                    width: 60%;
+                }
             }
         }
         &-content {
@@ -49,6 +64,14 @@
                 width: 100%;
                 min-height: 200px;
                 padding: 2%;
+            }
+            & strong{
+                display: block;
+                color: #e21313;
+                font-size: 1rem;
+                @include mq(){
+                    font-size: 0.9rem;
+                }
             }
         }
         &-submit{

@@ -105,14 +105,25 @@ $(function() {
 
 // スクロール
 $(function () {
-    $('.p-calendar__content-table-day').click(function () {
+    $('.js-scroll-click').click(function () {
         let click_date = $(this).data('dayid');
-        let hasdata = $(".p-tweet__box__study-day").is('[data-id='+ click_date +']');
+        let hasdata = $(".js-scroll-clickout").is('[data-id='+ click_date +']');
         if(hasdata){
             $("html,body").animate({scrollTop:$('[data-id='+ click_date +']').offset().top});
         }
     });
 });
+
+//データ削除時の確認
+$(function () {
+    $('.js-delete_alert').click(function() { 
+        if(!confirm('本当に削除しますか？')){
+          window.alert('キャンセルされました'); 
+          return false;
+        }
+    });
+});
+
 
 
 

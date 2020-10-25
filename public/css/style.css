@@ -1267,6 +1267,28 @@ td:nth-of-type(7) {
   }
 }
 
+.p-tweet__signup {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 2%;
+  margin-left: 1%;
+}
+
+.p-tweet__signup-btn {
+  background: #1e5be6;
+  width: 150px;
+  display: inline-block;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 414px) {
+  .p-tweet__signup-btn {
+    width: 100px;
+  }
+}
+
 .p-tweet__box {
   margin-bottom: 3%;
   padding: 1%;
@@ -1284,6 +1306,29 @@ td:nth-of-type(7) {
     margin-bottom: 5%;
     padding: 2% 3%;
   }
+}
+
+.p-tweet__box__btn {
+  text-align: center;
+  justify-content: space-between;
+  display: flex;
+  margin: 0 2%;
+}
+
+.p-tweet__box__btn-edit,
+.p-tweet__box__btn-delete {
+  display: inline-block;
+  width: 25%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.p-tweet__box__btn-edit {
+  background: #1e5be6;
+}
+
+.p-tweet__box__btn-delete {
+  background: #f3384aeb;
 }
 
 .p-tweet__box__study {
@@ -1320,6 +1365,7 @@ td:nth-of-type(7) {
   min-height: 400px;
   padding-left: 5%;
   word-break: break-all;
+  padding-bottom: 5%;
 }
 
 @media screen and (max-width: 414px) {
@@ -1512,6 +1558,12 @@ td:nth-of-type(7) {
   width: 40%;
 }
 
+@media screen and (max-width: 414px) {
+  .p-register__form {
+    width: 95%;
+  }
+}
+
 .p-register__form form {
   padding: 0 5% 5%;
   box-shadow: 5px 5px 20px 0 rgba(75, 75, 75, 0.5);
@@ -1529,6 +1581,24 @@ td:nth-of-type(7) {
   height: 30px;
 }
 
+@media screen and (max-width: 414px) {
+  .p-register__form-day input {
+    width: 60%;
+  }
+}
+
+.p-register__form-day strong {
+  display: block;
+  color: #e21313;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 414px) {
+  .p-register__form-day strong {
+    font-size: 0.9rem;
+  }
+}
+
 .p-register__form-hour {
   padding-top: 2%;
 }
@@ -1539,6 +1609,12 @@ td:nth-of-type(7) {
   height: 30px;
 }
 
+@media screen and (max-width: 414px) {
+  .p-register__form-hour input {
+    width: 60%;
+  }
+}
+
 .p-register__form-content {
   padding: 2% 0;
 }
@@ -1547,6 +1623,18 @@ td:nth-of-type(7) {
   width: 100%;
   min-height: 200px;
   padding: 2%;
+}
+
+.p-register__form-content strong {
+  display: block;
+  color: #e21313;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 414px) {
+  .p-register__form-content strong {
+    font-size: 0.9rem;
+  }
 }
 
 .p-register__form-submit {
@@ -1571,5 +1659,12 @@ td:nth-of-type(7) {
   left: 0;
   font-weight: bold;
   z-index: 2;
+}
+
+@media screen and (max-width: 414px) {
+  .c-flash-message {
+    font-size: 0.8rem;
+    line-height: 2.5;
+  }
 }
 
