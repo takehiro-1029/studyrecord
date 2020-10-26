@@ -14,7 +14,7 @@
     <title>{{ config('app.name', 'StudyRecord') }}</title>
     
     <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css?201025') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

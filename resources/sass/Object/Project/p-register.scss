@@ -30,11 +30,13 @@
 
         &-day {
             padding-top: 5%;
+            width: 100%;
             & input{
                 width: 40%;
                 text-align: center;
                 height: 30px;
                 @include mq(){
+                    font-size: 1rem;
                     width: 60%;
                 }
             }
@@ -49,11 +51,13 @@
         }
         &-hour {
             padding-top: 2%;
+            width: 100%;
             & input{
                 width: 40%;
                 text-align: center;
                 height: 30px;
                 @include mq(){
+                    font-size: 1rem;
                     width: 60%;
                 }
             }
@@ -64,6 +68,9 @@
                 width: 100%;
                 min-height: 200px;
                 padding: 2%;
+                @include mq(){
+                    font-size: 1rem;
+                }
             }
             & strong{
                 display: block;
@@ -76,7 +83,8 @@
         }
         &-submit{
             width: 30%;
-            padding: 1%;
+            padding: 2%;
+            font-size: 1rem;
         }
     }
 }
