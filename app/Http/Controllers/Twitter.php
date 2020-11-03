@@ -16,26 +16,23 @@ use DB;
 class Twitter extends Controller
 {    
     public function getTopPage()
-    { 
-                
-        $date = '2020-7-20';
-        $date2 = '2020-8-30';
+    {
+        $firstday = Carbon::now()->subMonth(3)->firstOfMonth()->format('Y-m-d');
+        $lastday = Carbon::now()->subMonth(3)->lastOfMonth()->format('Y-m-d');
         
         $user_studyhour_ranking = DB::select("
             SELECT 
-            studyrecords.user_id, Sum(studyrecords.study_hours), users.twitter_id, users.user_name, users.profile_image_url, users.screen_name as count FROM studyrecords 
+            studyrecords.user_id, Sum(studyrecords.study_hours) as study_hours, users.twitter_id, users.user_name, users.profile_image_url, users.screen_name FROM studyrecords 
             INNER JOIN users ON studyrecords.user_id = users.id 
-            WHERE studyrecords.study_date >= :date AND studyrecords.study_date < :date2
+            WHERE studyrecords.study_date >= :firstday AND studyrecords.study_date <= :lastday
             GROUP BY studyrecords.user_id
-            ORDER BY count ASC
+            ORDER BY study_hours DESC
             LIMIT 3
-        ", ['date' => $date, 'date2' => $date2]);
+        ", ['firstday' => $firstday, 'lastday' => $lastday]);
         
         dump($user_studyhour_ranking);
         
-        dd();
-        
-        return view('top');
+        return view('top',['user_studyhour_ranking' => $user_studyhour_ranking]);
     }
     
     public function getHowToUse()

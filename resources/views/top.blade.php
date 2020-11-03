@@ -18,6 +18,15 @@
 
         <div class="p-top__main">
 
+            <div>
+                @foreach ($user_studyhour_ranking as $rank => $user)
+                  <li>{{ $rank + 1 }}</li>
+                  <li>{{ $user->user_name }}</li>
+                  <li><img src="{{ $user->profile_image_url }}"/></li>
+                  <li>{{ $user->study_hours }}</li>
+                @endforeach   
+            </div>  
+               
             <div class="p-top__main__canDo js-top_main-animation">
                 <div class="p-top__main__canDo-message">StudyRecordでできること</div>
                 <div class="p-top__main__canDo-detaill">学習進捗Tweetを自動で収集し、学習内容の振り返りが簡単にできます。</div>
