@@ -30,7 +30,7 @@ class Twitter extends Controller
             LIMIT 3
         ", ['firstday' => $firstday, 'lastday' => $lastday]);
         
-        dump($user_studyhour_ranking);
+//        dump($user_studyhour_ranking);
         
         return view('top',['user_studyhour_ranking' => $user_studyhour_ranking]);
     }

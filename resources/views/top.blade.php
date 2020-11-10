@@ -17,15 +17,25 @@
         </div>
 
         <div class="p-top__main">
-
-            <div>
-                @foreach ($user_studyhour_ranking as $rank => $user)
-                  <li>{{ $rank + 1 }}</li>
-                  <li>{{ $user->user_name }}</li>
-                  <li><img src="{{ $user->profile_image_url }}"/></li>
-                  <li>{{ $user->study_hours }}</li>
-                @endforeach   
-            </div>  
+           
+            <div class="p-top__main__ranking js-top_main-animation">
+                <div class="p-top__main__ranking-message">直近1ヶ月の学習時間ランキング</div>
+                <table class="p-top__main__ranking-table">
+                    <tr>
+                        <th>ランク</th>
+                        <th colspan="2">ユーザー名</th>
+                        <th>学習時間</th>
+                    </tr>
+                    @foreach ($user_studyhour_ranking as $rank => $user)
+                        <tr>
+                            <td>{{ $rank + 1 }}</td>
+                            <td><img src="{{ $user->profile_image_url }}"/></td>
+                            <td>{{ $user->user_name }}</td>
+                            <td>{{ $user->study_hours }}</td>
+                        </tr>
+                    @endforeach   
+                </table>
+            </div> 
                
             <div class="p-top__main__canDo js-top_main-animation">
                 <div class="p-top__main__canDo-message">StudyRecordでできること</div>
